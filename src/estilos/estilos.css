@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+:root{
+    --dourado:#B39B5E;
+    --azul-escuro:#242D5A;
+    --azul-escurao:#1D1D31;
+    --branco:#FFFFFF;
+    --verde-whatsapp:#25D366;
+    --font-principal:'Josefin Sans', sans-serif;
+    --tam-font-titulos: 100px;
+    --tam_font_titulo_mobile_tablet: 40px;
+    --tam_font_mobile: 20px;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border:0px;
+    outline:none;
+}
+
+html{
+    overflow-y: auto;
+}
+
+body{
+    background-color: var(--azul-escurao);
+}
+.titulos{
+    font-family:var(--font-principal);
+    text-align:center;
+    color:var(--branco);
+    text-transform:uppercase;
+    font-weight:bold;
+    font-size:var(--tam-font-titulos);
+    line-height:120px;
+}
