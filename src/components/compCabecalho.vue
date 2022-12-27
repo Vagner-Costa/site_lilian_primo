@@ -26,12 +26,12 @@
                 @click="methodsBtnAtivo('PORTIFOLIO')">
                     PORTFÓLIO
             </router-link>
-            <router-link to="#" class="btn_links" 
+            <router-link to="/blog" class="btn_links" 
                 :class="{btn_ativo : computedBtnAtivo === 'BLOG'}" 
                 @click="methodsBtnAtivo('BLOG')">
                     BLOG
             </router-link>
-            <router-link to="#" class="btn_links btn_contato" 
+            <router-link to="/contato" class="btn_links btn_contato" 
                 :class="{btn_ativo : computedBtnAtivo === 'CONTATO'}" 
                 @click="methodsBtnAtivo('CONTATO')">
                     CONTATO

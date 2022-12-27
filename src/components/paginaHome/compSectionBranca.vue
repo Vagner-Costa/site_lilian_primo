@@ -1,44 +1,39 @@
 <template>
-    <section class="section_branca">
+  <section class="section_branca">
     <div class="container_geral_banner">
-      <button class="seta_esq">
+      <button class="seta_esq" @click="methodsMoverSlider('D')">
         <img src="@/assets/icones/seta-esq.png" alt="">
       </button>
 
-      <div class="box_banner_descricao">
-        <div class="box_img">
-          <img src="" alt="">
-          <p>FOTO</p>     
-        </div>
+      <div class="container_banner_descricao" ref="container_banner_descricao">
+        <div class="base_movimentacao" ref="base_movimentacao" :style="{transform: `translate(${computedPosLeft}px,0px)`}">
+          <div class="box_conteudo" :style="{width: computedLarguraConteudo+'px'}" v-for="conteudo in conteudo_slider" :key="conteudo.id">
+            <div class="box_img">
+              <img v-if="conteudo.foto" :src="`conteudo.foto`" :alt="conteudo.id">
+              <p v-else>FOTO</p>     
+            </div>
 
-        <div class="descricao_banner">
-          <p>
-            texto de exemploO processo de Personal Branding foi essencial
-            para a minha trajetória política. Além de entender como as
-            pessoas te enxergam, as metodologias utilizadas conseguem identificar
-            nossas potencialidades e a partir dai conseguir um resultado mais
-            eficiente. texto de exemplo
-          </p>
-        </div>
+            <div class="descricao_banner">
+              <p>{{conteudo.descricao}}</p>
+            </div>
 
-        <div class="box_titulo_nome_sobrenome">
-          <p>NOME E SOBRENOME</p>
-        </div>
+            <div class="box_titulo_nome_sobrenome">
+              <p>{{conteudo.titulo}}</p>
+            </div>
 
-        <div class="subtitulo_profissao">
-          <p>PROFISSÃO</p>
+            <div class="subtitulo_profissao">
+              <p>{{conteudo.subtitulo}}</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <button class="seta_dir">
+      <button class="seta_dir" @click="methodsMoverSlider('E')">
         <img src="@/assets/icones/seta-dir.png" alt="">
       </button>
     </div>
 
     <div class="box_btn_contador">
-      <button class="btn_contador"></button>
-      <button class="btn_contador"></button>
-      <button class="btn_contador"></button>
       <button class="btn_contador"></button>
     </div>
   </section>
@@ -48,8 +43,52 @@
 export default{
     name: 'compSectionBranca',
     data() {
-        return{}
+      return{
+        largura_container: '',
+        base_movimentacao : '',
+        pos_left : 0
+      }
     },
+    mounted(){
+      this.methodsObterPosicoes()
+      window.addEventListener('resize',this.methodsObterPosicoes)
+    },
+    
+    props: [
+      'conteudo_slider'
+    ],
+    computed: {
+      computedPosLeft(){
+        return this.pos_left
+      },
+      computedLarguraConteudo(){
+        return this.largura_container.width
+      },
+      computedBaseMovimentacao(){
+        return this.base_movimentacao
+      }
+    },
+    methods: {
+      methodsObterPosicoes(){
+        this.largura_container = this.$refs.container_banner_descricao.getBoundingClientRect();
+        this.base_movimentacao = this.$refs.base_movimentacao.getBoundingClientRect();
+        this.pos_left = 0
+      },
+
+      methodsMoverSlider(payload){
+        this.largura_container = this.$refs.container_banner_descricao.getBoundingClientRect();
+        this.base_movimentacao = this.$refs.base_movimentacao.getBoundingClientRect();
+        if(payload === 'D'){
+          if(this.base_movimentacao.left + this.largura_container.width <= this.largura_container.left){
+            this.pos_left += this.largura_container.width            
+          }
+        }else if(payload === 'E'){
+          if(this.base_movimentacao.right - this.largura_container.width >= this.largura_container.right){
+            this.pos_left+= -this.largura_container.width           
+          }
+        }
+      }
+    }
 }
 </script>
 
@@ -57,6 +96,7 @@ export default{
 <style>
   /*conteúdo section branca*/
   .section_branca{
+    width:100%;
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -84,10 +124,23 @@ export default{
     cursor:pointer;
     background-color:var(--branco);
   }
-  .box_banner_descricao{
+  .container_banner_descricao{
     margin: 0px 50px;
-    width:800px;
+    width:900px;
     height:500px;
+    position:relative;
+  }
+  .base_movimentacao{
+    height:100%;
+    display:flex;
+    flex-direction:row;
+    position:absolute;
+    transition: all 0.5s;
+  }
+  .box_conteudo{
+    height:100%;
+    padding-top:10px;
+    background-color:#ccc;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -149,7 +202,7 @@ export default{
     display:flex;
     flex-direction:row;
     justify-content: space-between;
-    margin-top:10px;   
+    margin-top:10px;  
   }
   .btn_contador{
     width:10px;
@@ -182,10 +235,9 @@ export default{
       right:10px;
       background-color: rgba(255,255,255,0.4);
     }
-    .box_banner_descricao{
+    .container_banner_descricao{
       width:100%;
       margin: 0px;
-      border:solid 1px #f00;
       padding:0px;
     }
     .box_titulo_nome_sobrenome{

@@ -1,7 +1,6 @@
 <template>
-    <section>           
-        <article>  
-            <CompBanner/>            
+    <section>       
+            <CompBanner :banner="computedBannerAboutMe"/>            
             <div class="box_txt_aboutme">
                 <h1 class="titulos">ABOUT ME</h1>
             </div>
@@ -29,31 +28,36 @@
                     para clientes em áreas que demandam grande transformação digital.
                 </p>
             </div>
-            
-        </article>
+        
     </section>
 </template>
 
 <script>
-import CompBanner from '@/components/paginaHome/compBanner.vue'
+import CompBanner from '@/components/compBanner.vue'
 export default {
     name: 'PaginaAboutMe',
     data() {
-        return{}
+        return{
+            banner_aboutMe: 'banner-teste.jpg'
+        }
     },
     components:{
         CompBanner
+    },
+    computed:{
+        computedBannerAboutMe(){
+            return this.banner_aboutMe
+        }
     }
 }
 </script>
 
 <style scoped>
-    article{
+    section{
         display:flex;
         flex-direction:column;
         justify-content:flex-start;
         align-items:center;
-        z-index:3;
     }
     .box_txt_aboutme{
         margin-top:-40px;
@@ -87,7 +91,7 @@ export default {
     }
     @media screen and (min-width:0px) and (max-width:760px){
         .box_txt_aboutme{
-            margin-top:30px;
+            margin-top:-20px;
         }
         .box_txt_aboutme h1{
             font-size:40px;
