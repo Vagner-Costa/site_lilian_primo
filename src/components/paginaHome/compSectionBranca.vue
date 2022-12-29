@@ -33,8 +33,12 @@
       </button>
     </div>
 
-    <div class="box_btn_contador">
-      <button class="btn_contador"></button>
+    <div class="container_btn_contador">
+      <div class="box_btn_contador" :style="{transform: `translate(${computedPosLeftBtnCirculo}px,0px)`}">
+        <div class="btn_contador" :class="{btn_selecionado : conteudo_slider.indexOf(conteudo) == computedPosInicial}"
+          v-for="conteudo in conteudo_slider" :key="conteudo.id" 
+        ></div>
+      </div>
     </div>
   </section>
 </template>
@@ -44,54 +48,75 @@ export default{
     name: 'compSectionBranca',
     data() {
       return{
-        largura_container: '',
-        base_movimentacao : '',
-        pos_left : 0
+        largura_container:'',
+        tam_conteudo:0,
+        pos_inicial:0,
+        pos_left:0,
+        pos_left_btn_circulo:0
       }
     },
-    mounted(){
-      this.methodsObterPosicoes()
-      window.addEventListener('resize',this.methodsObterPosicoes)
-    },
-    
     props: [
       'conteudo_slider'
     ],
+    mounted(){
+      this.methodsReset()
+      window.addEventListener('resize',this.methodsReset)
+    },
+
     computed: {
       computedPosLeft(){
         return this.pos_left
       },
       computedLarguraConteudo(){
-        return this.largura_container.width
+        return this.largura_container
       },
-      computedBaseMovimentacao(){
-        return this.base_movimentacao
+      computedPosInicial(){
+        return this.pos_inicial
+      },
+      computedPosLeftBtnCirculo(){
+        return this.pos_left_btn_circulo
       }
     },
+
     methods: {
-      methodsObterPosicoes(){
-        this.largura_container = this.$refs.container_banner_descricao.getBoundingClientRect();
-        this.base_movimentacao = this.$refs.base_movimentacao.getBoundingClientRect();
+      methodsReset(){
+        this.largura_container = this.$refs.container_banner_descricao.offsetWidth
+        this.tam_conteudo = this.conteudo_slider.length
+        this.pos_inicial = 0
         this.pos_left = 0
+        this.pos_left_btn_circulo = 0
       },
 
       methodsMoverSlider(payload){
-        this.largura_container = this.$refs.container_banner_descricao.getBoundingClientRect();
-        this.base_movimentacao = this.$refs.base_movimentacao.getBoundingClientRect();
         if(payload === 'D'){
-          if(this.base_movimentacao.left + this.largura_container.width <= this.largura_container.left){
-            this.pos_left += this.largura_container.width            
+          if(this.pos_inicial > 0){
+            this.pos_inicial--
+            this.pos_left+= this.largura_container
+            if(this.tam_conteudo > 3 && (this.pos_inicial > 0 && this.pos_inicial < this.tam_conteudo-2)){
+              console.log(this.pos_inicial)
+              this.pos_left_btn_circulo+= 20
+            }
           }
-        }else if(payload === 'E'){
-          if(this.base_movimentacao.right - this.largura_container.width >= this.largura_container.right){
-            this.pos_left+= -this.largura_container.width           
+        }else if(payload === 'E'){          
+          if(this.pos_inicial < this.tam_conteudo-1){
+            this.pos_inicial++
+            this.pos_left+= -this.largura_container 
+            if(this.tam_conteudo > 3 && (this.pos_inicial > 1 && this.pos_inicial < this.tam_conteudo-1) ){
+              this.pos_left_btn_circulo+= -20
+            }
           }
         }
-      }
+      },
     }
 }
-</script>
 
+//@click="methodsBtnPosicao(conteudo_slider.indexOf(conteudo))"
+//methodsBtnPosicao(event){
+//  this.pos_inicial = event
+//  this.pos_left = event * -this.largura_container
+//}
+//
+</script>
 
 <style>
   /*conteúdo section branca*/
@@ -140,7 +165,6 @@ export default{
   .box_conteudo{
     height:100%;
     padding-top:10px;
-    background-color:#ccc;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -197,19 +221,27 @@ export default{
     font-weight:400;
     color:var(--azul-escurao);
   }
-  .box_btn_contador{
+  .container_btn_contador{
     width:60px;
-    display:flex;
-    flex-direction:row;
-    justify-content: space-between;
-    margin-top:10px;  
+    height:24px;
+    margin-top:10px;
+    overflow:hidden;
+    padding:0px;
+  }
+  .box_btn_contador{
+    display:inline-flex;
+    position:relative;
+    margin:0px;
   }
   .btn_contador{
     width:10px;
     height:10px;
+    margin:0px 5px;
     border-radius:5px;
     background-color:var(--azul-escurao);
-    cursor:pointer;
+  }
+  .btn_selecionado{
+    background-color:var(--dourado)
   }
   @media screen and (min-width:0px) and (max-width:760px){
     .section_branca{
@@ -248,6 +280,7 @@ export default{
       font-size: 26px;
       text-align:center;
     }
+    
   }
   @media screen and (min-width: 761px) and (max-width:990px){
     .section_branca{

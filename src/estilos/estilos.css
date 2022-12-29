@@ -28,6 +28,7 @@ html{
 body{
     background-color: var(--azul-escurao);
 }
+
 .titulos{
     font-family:var(--font-principal);
     text-align:center;

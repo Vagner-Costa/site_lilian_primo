@@ -2,9 +2,9 @@
     <div class="container_video" v-if="videos">
         <div v-for="video in videos" class="box_videos_descricao" :key="video.id">
             <div class="box_video">
-                <img v-if="video.imagem" :src="`videos_portfolio/${video.imagem}`" :alt="video.id">
+                <img v-if="video.imagem" :src="`imagensVideosTopicosPortfolio/${video.imagem}`" :alt="video.id">
                 <button class="btn_play" v-if="video.imagem" @click="actionsModalPaginaPortfolio(video)">
-                    <img src="../assets/image1.png" alt="play">
+                    <img src="../assets/icones/image1.png" alt="play">
                 </button>
             </div>
             <div class="box_descricao">
@@ -17,7 +17,7 @@
     <div class="container_video" v-if="imagens">
         <div v-for="imagem in imagens" class="box_videos_descricao" :key="imagem.id">
             <div class="box_video">
-                <img v-if="imagem.imagem" :src="`imagens_blog/${imagem.imagem}`" :alt="imagem.id">
+                <img v-if="imagem.imagem" :src="`imagensTopicosBlog/${imagem.imagem}`" :alt="imagem.id">
             </div>
             <div class="box_descricao">
                 <p v-if="imagem.descricao">{{imagem.descricao}}</p>

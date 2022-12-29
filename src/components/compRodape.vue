@@ -26,7 +26,7 @@
 
         <div class="container_banner_newsletter">
             <div class="box_banner">
-                <img src="@/assets/banners/newsletter.png" alt="imagem">
+                <img src="@/assets/newsletter/newsletter.png" alt="imagem">
             </div>
 
             <div class="box_newsletter_form">
@@ -36,7 +36,7 @@
 
                 <p class="txt_newsletter">Assine nossa newsletter para receber atualizações e notícias exclusivas.</p>
                 
-                <form class="formulario" @submit.prevent="methodsEnvioFormuario"> 
+                <form class="formulario" @submit.prevent="methodsEnvioFormuario()"> 
                     <label>*Nome:</label>
                     <input type="text" v-model="computedFormulario.nome" max-length="20" ref="nome"/>
                         
@@ -44,7 +44,6 @@
                     <input type="email" v-model="computedFormulario.email" ref="email"/>
                 
                     <input type="submit" value="QUERO RECEBER O CONTEÚDO!"/>
-                    
                 </form>
             </div>
         </div>
@@ -60,28 +59,30 @@ export default{
             formulario:{
                 nome:'',
                 email:''
-            }
+            },
         }
     },
     computed:{
         computedFormulario(){
             return this.formulario
-        }
+        },
     },
     methods:{
+        //função referente ao envio de contato newsletter
         methodsEnvioFormuario(){
             if(!this.formulario.nome){
                 const input_nome = this.$refs.nome
                 input_nome.focus()
-                alert("nome vazio")
+                input_nome.placeholder = 'Campo nome não pode ser vazio!'
                 return
             }
             if(!this.formulario.email){
                 const input_email = this.$refs.email
                 input_email.focus()
-                alert('email vazio')
+                input_email.placeholder = 'Campo email não pode ser vazio!'
                 return
             }
+            alert('ok chegou')
         }
     }
 }
@@ -161,7 +162,7 @@ export default{
         font-family: var(--font-principal);
         font-weight:bold;
         font-size:36px;
-        line-height:36px;
+        line-height:45px;
         color:var(--branco);
         margin-bottom:39px;
     }
@@ -218,6 +219,7 @@ export default{
         font-size:18px;
         color:var(--branco);
         border-radius:20px;
+        cursor:pointer;
     }
     @media screen and (min-width:0px) and (max-width:760px){
         .section_dourada{

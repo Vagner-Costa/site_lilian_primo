@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="box_logo">
-            <img src="@/assets/LOGO-VERTICAL1.png" alt="imagem Logotipo">
+            <img src="@/assets/logotipo/LOGO-VERTICAL1.png" alt="imagem Logotipo">
         </div>
 
 
@@ -12,28 +12,28 @@
 
         <nav :class="{nav_fechado : !computedMenuNav}">
             <router-link to="/" class="btn_links btn_home" 
-                :class="{btn_ativo : computedBtnAtivo === 'HOME'}" 
-                @click="methodsBtnAtivo('HOME')">
+                :class="{btn_ativo : computedBtnAtivo === '/'}" 
+                @click="methodsBtnAtivo('/')">
                     HOME
             </router-link>
             <router-link to="/about-me" class="btn_links" 
-                :class="{btn_ativo : computedBtnAtivo === 'ABOUT'}"
-                @click="methodsBtnAtivo('ABOUT')">
+                :class="{btn_ativo : computedBtnAtivo === '/about-me'}"
+                @click="methodsBtnAtivo('/about-me')">
                     ABOUT ME
             </router-link>
             <router-link to="/portfolio" class="btn_links" 
-                :class="{btn_ativo : computedBtnAtivo === 'PORTIFOLIO'}" 
-                @click="methodsBtnAtivo('PORTIFOLIO')">
+                :class="{btn_ativo : computedBtnAtivo === '/portfolio'}" 
+                @click="methodsBtnAtivo('/portfolio')">
                     PORTFÓLIO
             </router-link>
             <router-link to="/blog" class="btn_links" 
-                :class="{btn_ativo : computedBtnAtivo === 'BLOG'}" 
-                @click="methodsBtnAtivo('BLOG')">
+                :class="{btn_ativo : computedBtnAtivo === '/blog'}" 
+                @click="methodsBtnAtivo('/blog')">
                     BLOG
             </router-link>
             <router-link to="/contato" class="btn_links btn_contato" 
-                :class="{btn_ativo : computedBtnAtivo === 'CONTATO'}" 
-                @click="methodsBtnAtivo('CONTATO')">
+                :class="{btn_ativo : computedBtnAtivo === '/contato'}" 
+                @click="methodsBtnAtivo('/contato')">
                     CONTATO
             </router-link>
         </nav>
@@ -47,8 +47,11 @@
         data() {
             return{
                 menu_nav : false,
-                btn_ativo : 'HOME'
+                btn_ativo : ''
             }
+        },
+        beforeMount(){
+            this.btn_ativo = window.location.pathname
         },
         computed:{
             computedMenuNav(){

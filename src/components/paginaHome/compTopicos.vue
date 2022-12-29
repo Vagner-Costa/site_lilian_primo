@@ -1,7 +1,7 @@
 <template>
     <div class="container_topicos">
         <div class="box_icones">
-            <img :src="`imagens/${icone}`" alt="icone">
+            <img :src="`imagensTopicosSectionAzul/${icone}`" alt="icone">
         </div>
         <div class="box_txt_topicos">
             <p>{{txt_topicos}}</p>
