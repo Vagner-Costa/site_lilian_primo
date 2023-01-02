@@ -33,13 +33,19 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 import CompBanner from '@/components/compBanner.vue'
 export default {
     name: 'PaginaAboutMe',
     data() {
         return{
+            pagina_atual: '',
             banner_aboutMe: 'banner-teste.jpg'
         }
+    },
+    beforeMount(){
+        this.pagina_atual = window.location.pathname
+        this.mutationsPaginaAtual(this.pagina_atual)
     },
     components:{
         CompBanner
@@ -47,7 +53,10 @@ export default {
     computed:{
         computedBannerAboutMe(){
             return this.banner_aboutMe
-        }
+        },
+    },
+    methods: {
+        ...mapMutations(['mutationsPaginaAtual'])
     }
 }
 </script>

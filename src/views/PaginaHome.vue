@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 import CompBanner from '@/components/compBanner.vue'
 import CompSectionAzul from '@/components/paginaHome/compSectionAzul.vue'
 import CompSectionBranca from '@/components/paginaHome/compSectionBranca.vue'
@@ -15,6 +16,7 @@ export default {
   name: 'PaginaHome',
   data(){
     return{
+      pagina_atual: '',
       bannerHome: 'banner-teste.jpg',
       conteudo_slider: [
         {
@@ -55,6 +57,10 @@ export default {
       ],
     }
   },
+  beforeMount(){
+    this.pagina_atual = window.location.pathname
+    this.mutationsPaginaAtual(this.pagina_atual)
+  },
   computed: {
     computedBannerHome(){
       return this.bannerHome
@@ -67,6 +73,9 @@ export default {
     CompBanner,
     CompSectionAzul,
     CompSectionBranca
+  },
+  methods: {
+    ...mapMutations(['mutationsPaginaAtual'])
   }
 }
 </script>

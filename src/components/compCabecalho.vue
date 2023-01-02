@@ -13,53 +13,50 @@
         <nav :class="{nav_fechado : !computedMenuNav}">
             <router-link to="/" class="btn_links btn_home" 
                 :class="{btn_ativo : computedBtnAtivo === '/'}" 
-                @click="methodsBtnAtivo('/')">
+            >
                     HOME
             </router-link>
             <router-link to="/about-me" class="btn_links" 
                 :class="{btn_ativo : computedBtnAtivo === '/about-me'}"
-                @click="methodsBtnAtivo('/about-me')">
+            >
                     ABOUT ME
             </router-link>
             <router-link to="/portfolio" class="btn_links" 
                 :class="{btn_ativo : computedBtnAtivo === '/portfolio'}" 
-                @click="methodsBtnAtivo('/portfolio')">
+            >
                     PORTFÓLIO
             </router-link>
             <router-link to="/blog" class="btn_links" 
                 :class="{btn_ativo : computedBtnAtivo === '/blog'}" 
-                @click="methodsBtnAtivo('/blog')">
+            >
                     BLOG
             </router-link>
             <router-link to="/contato" class="btn_links btn_contato" 
                 :class="{btn_ativo : computedBtnAtivo === '/contato'}" 
-                @click="methodsBtnAtivo('/contato')">
+            >
                     CONTATO
             </router-link>
         </nav>
-         
     </header>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     export default{
         name: 'compCabecalho',
         data() {
             return{
                 menu_nav : false,
-                btn_ativo : ''
             }
-        },
-        beforeMount(){
-            this.btn_ativo = window.location.pathname
         },
         computed:{
             computedMenuNav(){
                 return this.menu_nav
             },
             computedBtnAtivo(){
-                return this.btn_ativo
-            }
+                return this.gettersPaginaAtual
+            },
+            ...mapGetters(['gettersPaginaAtual'])
         },
         methods:{
             methodsToggleNav(){

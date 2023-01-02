@@ -7,12 +7,14 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 import CompTopicos from '../components/compTopicosPortifolioBlog.vue'
 
 export default {
     name: 'PaginaPortfolio.vue',
     data() {
         return{
+            pagina_atual: '',
             videos : [
                 {
                     id: '0001',
@@ -71,6 +73,10 @@ export default {
             ]
         }
     },
+    beforeMount(){
+        this.pagina_atual = window.location.pathname
+        this.mutationsPaginaAtual(this.pagina_atual)
+    },
     components: {
         CompTopicos 
     },
@@ -79,6 +85,9 @@ export default {
             return this.videos
         }
     },
+    methods: {
+        ...mapMutations(['mutationsPaginaAtual'])
+    }
 }
 </script>
 

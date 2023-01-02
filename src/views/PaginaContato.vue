@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 import CompBanner from '@/components/compBanner.vue'
 
 export default {
@@ -17,6 +18,10 @@ export default {
             bannerContato: 'banner-teste.jpg'
         }
     },
+    beforeMount(){
+        this.pagina_atual = window.location.pathname
+        this.mutationsPaginaAtual(this.pagina_atual)
+    },
     components: {
         CompBanner
     },
@@ -24,6 +29,9 @@ export default {
         computedBannerContato(){
             return this.bannerContato
         }
+    },
+    methods: {
+        ...mapMutations(['mutationsPaginaAtual'])
     }
 }
 </script>

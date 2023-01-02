@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 
 import ModuleModalPaginaPortfolio from './modalPaginaPortfolio'
+import ModulePaginaAtual from './obterPaginaAtual'
 
 export default createStore({
   state: {
@@ -13,5 +14,6 @@ export default createStore({
   },
   modules: {
     ModuleModalPaginaPortfolio,
+    ModulePaginaAtual
   }
 })
