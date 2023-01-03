@@ -65,8 +65,7 @@ export default {
         }
     },
     beforeMount(){
-        this.pagina_atual = window.location.pathname
-        this.mutationsPaginaAtual(this.pagina_atual)
+        this.mutationsPaginaAtual('/blog')
     },
     components: {
         CompTopicos

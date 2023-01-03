@@ -18,9 +18,8 @@ export default {
             bannerContato: 'banner-teste.jpg'
         }
     },
-    beforeMount(){
-        this.pagina_atual = window.location.pathname
-        this.mutationsPaginaAtual(this.pagina_atual)
+    beforeMount(){      
+        this.mutationsPaginaAtual('/contato')
     },
     components: {
         CompBanner
