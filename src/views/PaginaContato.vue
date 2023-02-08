@@ -4,7 +4,7 @@
         <CompBanner :banner="computedBannerContato"/>
     </section>
 </template>
-
+ 
 <script>
 import {mapMutations} from 'vuex'
 import CompBanner from '@/components/compBanner.vue'
