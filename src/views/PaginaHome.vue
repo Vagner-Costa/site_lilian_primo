@@ -17,7 +17,7 @@ export default {
   data(){
     return{
       pagina_atual: '',
-      bannerHome: 'banner-teste.jpg',
+      bannerHome: 'evolua-home.png',
       conteudo_slider: [
         {
           id: '001',

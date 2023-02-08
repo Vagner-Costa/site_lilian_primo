@@ -1,6 +1,6 @@
 <template>
     <div class="banner">
-        <img :src="`imagensBanner/${banner}`" alt="">
+        <img :src="`imagensBanner/${computedBanner}`" alt="">
     </div>
 </template>
 
@@ -12,7 +12,12 @@ export default {
     },
     props: [
         'banner'
-    ]
+    ],
+    computed:{
+        computedBanner(){
+            return this.banner
+        }
+    }
 }
 </script>
 

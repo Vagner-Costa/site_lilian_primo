@@ -1,8 +1,6 @@
-
 <template>
     <section>
         <h1 class="titulos">CONTATO</h1>
-
         <CompBanner :banner="computedBannerContato"/>
     </section>
 </template>
@@ -15,7 +13,7 @@ export default {
     name: 'PaginaContato.vue',
     data() {
         return {
-            bannerContato: 'banner-teste.jpg'
+            bannerContato: 'contato.png'
         }
     },
     beforeMount(){      

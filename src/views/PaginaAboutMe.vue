@@ -40,7 +40,7 @@ export default {
     data() {
         return{
             pagina_atual: '',
-            banner_aboutMe: 'banner-teste.jpg'
+            banner_aboutMe: 'mentes_brilhantes.png'
         }
     },
     beforeMount(){

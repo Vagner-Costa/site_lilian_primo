@@ -12,6 +12,6 @@ export default {
             state.pagina_atual = payload
         }
     },
-    actions:{}
+    actions:{} 
 
 }
