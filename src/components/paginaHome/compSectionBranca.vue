@@ -5,7 +5,7 @@
         <img src="@/assets/icones/seta-esq.png" alt="">
       </button>
 
-      <div class="container_banner_descricao" ref="container_banner_descricao">
+      <div class="container_slider_descricao" ref="container_slider_descricao">
         <div class="base_movimentacao" ref="base_movimentacao" :style="{transform: `translate(${computedPosLeft}px,0px)`}">
           <div class="box_conteudo" :style="{width: computedLarguraConteudo+'px'}" v-for="conteudo in conteudo_slider" :key="conteudo.id">
             <div class="box_img">
@@ -80,7 +80,7 @@ export default{
 
     methods: {
       methodsReset(){
-        this.largura_container = this.$refs.container_banner_descricao.offsetWidth
+        this.largura_container = this.$refs.container_slider_descricao.offsetWidth
         this.tam_conteudo = this.conteudo_slider.length
         this.pos_inicial = 0
         this.pos_left = 0
@@ -109,25 +109,20 @@ export default{
       },
     }
 }
-
-//@click="methodsBtnPosicao(conteudo_slider.indexOf(conteudo))"
-//methodsBtnPosicao(event){
-//  this.pos_inicial = event
-//  this.pos_left = event * -this.largura_container
-//}
-//
 </script>
 
 <style>
-  /*conteúdo section branca*/
   .section_branca{
     width:100%;
+    height:auto;
+    min-height:630px;
     display: flex;
     flex-direction: column;
     align-items:center;
+    justify-content:center;
     background-color: var(--branco);
-    padding:52px 324px;
-    min-height:630px;
+    padding:50px  324px;
+    
   }
   .container_geral_banner{
     width:100%;
@@ -149,7 +144,7 @@ export default{
     cursor:pointer;
     background-color:var(--branco);
   }
-  .container_banner_descricao{
+  .container_slider_descricao{
     margin: 0px 50px;
     width:900px;
     height:500px;
@@ -183,8 +178,10 @@ export default{
     position:relative;
   }
   .box_img p{
-    font-size:18px;
-    font-family: var(--font-principal);
+    font-size:var(--tam-textos-web);
+    font-family: var(--font-textos);
+    font-weight:var(--peso-100);
+    line-height:var(--alt-linha-textos-web);
     color: var(--branco);
     position:absolute;
   }
@@ -197,18 +194,22 @@ export default{
     margin-top:30px;
   }
   .descricao_banner p{
-    font-family: var(--font-principal);
-    font-size:22px;
+    font-family: var(--font-textos);
+    font-size:var(--tam-textos-web);
+    font-weight:var(--peso-100);
+    line-height:var(--alt-linha-textos-web);
     color:var(--azul-escuro);
     text-align:center;
   }
   .box_titulo_nome_sobrenome{
     margin-top:80px;
+    padding-top:5px;
   }
   .box_titulo_nome_sobrenome p{
-    font-family: var(--font-principal);
-    font-size: 32px;
-    font-weight:bold;
+    font-family: var(--font-titulos);
+    font-size: 30px;
+    font-weight:var(--peso-100);
+    line-height:var(--alt-linha-textos-web);
     color: var(--azul-escurao);
   }
   .subtitulo_profissao{
@@ -216,9 +217,9 @@ export default{
     margin-top:18px;
   }
   .subtitulo_profissao p{
-    font-family: var(--font-principal);
-    font-size:18px;
-    font-weight:400;
+    font-family: var(--font-textos);
+    font-size:16px;
+    font-weight:100;
     color:var(--azul-escurao);
   }
   .container_btn_contador{
@@ -253,6 +254,10 @@ export default{
       justify-content:center;
       align-items:center;
     }
+    .box_img p{
+      font-size:var(--tam-textos-mobile);
+      line-height:var(--alt-linha-textos-mobile);
+    }
     .seta_esq, .seta_dir{
       position:absolute;
       height:80px;
@@ -267,7 +272,12 @@ export default{
       right:10px;
       background-color: rgba(255,255,255,0.4);
     }
-    .container_banner_descricao{
+    .descricao_banner p{
+      font-size:var(--tam-textos-mobile);
+      line-height:var(--alt-linha-textos-mobile);
+    }
+    
+    .container_slider_descricao{
       width:100%;
       margin: 0px;
       padding:0px;
@@ -278,13 +288,25 @@ export default{
     }
     .box_titulo_nome_sobrenome p{
       font-size: 26px;
-      text-align:center;
+      line-height:var(--alt-linha-textos-mobile);
     }
     
   }
   @media screen and (min-width: 761px) and (max-width:990px){
     .section_branca{
       padding:52px 50px;
+    }
+    .box_img p{
+      font-size:var(--tam-textos-tablet);
+      line-height:var(--alt-linha-textos-tablet);
+    }
+    .box_titulo_nome_sobrenome p{
+      font-size: 28px;
+      line-height:var(--alt-linha-textos-tablet);
+    }
+    .descricao_banner p{
+      font-size:var(--tam-textos-tablet);
+      line-height:var(--alt-linha-textos-tablet);
     }
   }
   @media screen and (min-width: 991px) and (max-width:1400px){

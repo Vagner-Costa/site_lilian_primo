@@ -1,18 +1,18 @@
 <template>
-    <section class="section_azul">
-        <div class="box_titulo_topicos">
-        <p>Uma trajetória que gerou muitos resultados.</p>
-        </div>
-        <div class="box_topicos">
-        <BoxTopicos :icone="computedIcones[0]" :txt_topicos="textos[0]"/>
-        <BoxTopicos :icone="computedIcones[1]" :txt_topicos="textos[1]"/>
-        <BoxTopicos :icone="computedIcones[2]" :txt_topicos="textos[2]"/>
-        <BoxTopicos :icone="computedIcones[3]" :txt_topicos="textos[3]"/>
-        <BoxTopicos :icone="computedIcones[4]" :txt_topicos="textos[4]"/>
-        <BoxTopicos :icone="computedIcones[5]" :txt_topicos="textos[5]"/>
+  <section class="section_azul">
+    <div class="box_titulo_topicos">
+      <h3>Uma trajetória que gerou muitos resultados.</h3>
+    </div>
 
-        </div>
-    </section>
+    <div class="box_topicos">
+      <BoxTopicos :icone="computedIcones[0]" :txt_topicos="textos[0]"/>
+      <BoxTopicos :icone="computedIcones[1]" :txt_topicos="textos[1]"/>
+      <BoxTopicos :icone="computedIcones[2]" :txt_topicos="textos[2]"/>
+      <BoxTopicos :icone="computedIcones[3]" :txt_topicos="textos[3]"/>
+      <BoxTopicos :icone="computedIcones[4]" :txt_topicos="textos[4]"/>
+      <BoxTopicos :icone="computedIcones[5]" :txt_topicos="textos[5]"/>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -56,11 +56,14 @@ export default{
 
 <style scoped>
     .section_azul{
-        display: flex;
-        min-height:630px;
-        flex-direction: column;
-        align-items:center;
-        padding: 52px 166px;
+      width:100%;
+      height:auto;
+      min-height:630px;
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items:center;
+      padding:50px 166px;
     } 
     .box_titulo_topicos{
         max-width:546px;
@@ -68,68 +71,45 @@ export default{
         flex-direction:row;
         flex-wrap:wrap;
         justify-content:center;
+        margin-bottom:50px;
     }
-    .box_titulo_topicos p{
-        font-weight:700;
-        font-family:var(--font-principal);
-        font-size:46px;
-        color:var(--branco);
-        text-align:center;
-        line-height:46px;
+    h3{
+      font-family:var(--font-titulos);
+      font-size:var(--tam-subtitulos-web);
+      font-weight:var(--peso-400);
+      line-height:var(--alt-linha-subtitulos-web);
+      color:var(--branco);
+      text-align:center;
     }
     .box_topicos{
-        margin-top:101px;
-        display:flex;
-        flex-direction:row;
-        justify-content:center;
-        flex-grow:1;
-        flex-wrap:wrap;
-    }  
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
   @media screen and (min-width:0px) and (max-width:760px){
     .section_azul{
-      padding: 30px 0px;
+      padding:50px 10px;
     }  
     .box_titulo_topicos{
       width:100%;
-      height:100%;
-      padding:0px 10px;
+      height:auto;
     }
-    .box_titulo_topicos p{
-      font-size:var(--tam_font_titulo_mobile_tablet);
-      line-height:40px;
-    }
-    .box_topicos{
-      margin-top:50px;
+    h3{
+      font-size:var(--tam-subtitulos-mobile);
+      line-height:var(--alt-linha-subtitulos-mobile);
     }
   }
   @media screen and (min-width: 761px) and (max-width:990px){
     .section_azul{
-      padding: 52px 20px;
+      padding:50px 20px;
     } 
     .box_titulo_topicos{
-      width:500px;
+      width:546px;
     }
-    .box_titulo_topicos p{
-      font-size:var(--tam_font_titulo_mobile_tablet);
-      line-height:46px;
-    }
-    .box_topicos{
-      margin-top:60px;
+    h3{
+      font-size:var(--tam-subtitulos-tablet);
+      line-height:var(--alt-linha-subtitulos-tablet);
     }
   }
-  @media screen and (min-width: 991px) and (max-width:1400px){
-    .section_azul{
-      padding: 52px 30px;
-    } 
-    .box_titulo_topicos{
-      width:500px;
-    }
-    .box_titulo_topicos p{
-      font-size:var(--tam_font_titulo_mobile_tablet);
-      line-height:46px;
-    }
-    .box_topicos{
-      margin-top:80px;
-    }
-  }
+  @media screen and (min-width: 991px) and (max-width:1400px){}
 </style>

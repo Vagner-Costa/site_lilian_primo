@@ -1,4 +1,4 @@
-<template>
+<template> 
     <div class="container_video" v-if="videos">
         <div v-for="video in videos" class="box_videos_descricao" :key="video.id">
             <div class="box_video">
@@ -88,7 +88,7 @@ export default {
         display:flex;
         justify-content:center;
         align-items:center;
-        padding:0px 10px;
+        padding:0px 10px;   
     }
     .box_descricao p{
         color:var(--branco);

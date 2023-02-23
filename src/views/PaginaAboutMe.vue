@@ -1,8 +1,9 @@
 <template>
     <section>       
-            <CompBanner :banner="computedBannerAboutMe"/>            
+        <CompBanner :banner="computedBannerAboutMe"/>  
+        <div class="container_textos">          
             <div class="box_txt_aboutme">
-                <h1 class="titulos">ABOUT ME</h1>
+                <h1>ABOUT ME</h1>
             </div>
 
             <div class="box_txt_minhaHistoria">
@@ -28,7 +29,7 @@
                     para clientes em áreas que demandam grande transformação digital.
                 </p>
             </div>
-        
+        </div>
     </section>
 </template>
 
@@ -40,7 +41,7 @@ export default {
     data() {
         return{
             pagina_atual: '',
-            banner_aboutMe: 'mentes_brilhantes.png'
+            banner_aboutMe: 'mentes-brilhantes.png'
         }
     },
     beforeMount(){
@@ -64,117 +65,102 @@ export default {
     section{
         display:flex;
         flex-direction:column;
-        justify-content:flex-start;
+        justify-content:center;
+        align-items:center;
+    }
+    .container_textos{
+        width:100%;
+        overflow:visible;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
         align-items:center;
     }
     .box_txt_aboutme{
-        margin-top:-40px;
+        margin-top:-60px;
     }
-    .box_txt_minhaHistoria{
-        margin-top:144px;
-    }
-    .box_txt_minhaHistoria h3{
+    h1{
+        font-family:var(--font-titulos);
+        font-size:var(--tam-titulos-web);
+        font-weight:var(--peso-400);
+        line-height:var(--alt-linha-titulos-web);
         color:var(--branco);
-        font-family:var(--font-principal);
-        font-size:68px;
-        line-height:70px;
-        font-weight:400;
+    }
+    h3{
+        color:var(--branco);
+        font-family:var(--font-titulos);
+        font-size:var(--tam-subtitulos-web);
+        line-height:var(--alt-linha-subtitulos-web);
+        font-weight:var(--peso-400);
+        margin-top:100px;
     }
     .box_descricao{
-        margin-top:54px;
-        margin-bottom:402px;
+        margin-top:50px;
         display:flex;
         flex-direction:column;
         justify-content:center;
         max-width:1202px;
+        margin-bottom:120px;
     }
     .box_descricao p{
         color:var(--branco);
-        font-family:var(--font-principal);
+        font-family:var(--font-textos);
+        font-weight:var(--peso-100);
+        font-size:var(--tam-textos-web);
+        line-height:var(--alt-linha-textos-web);
         text-align:center;
-        font-size:32px;
-        margin-bottom:50px;
-        line-height:32px;
-        font-weight:100;
     }
     @media screen and (min-width:0px) and (max-width:760px){
         .box_txt_aboutme{
-            margin-top:-20px;
+            margin-top:-25px;
         }
-        .box_txt_aboutme h1{
-            font-size:40px;
-            line-height:55px;
+        h1{
+            font-family:var(--font-titulos);
+            font-size:var(--tam-titulos-mobile);
+            font-weight:var(--peso-400);
+            line-height:var(--alt-linha-titulos-mobile);
+            color:var(--branco);
         }
-        .box_txt_minhaHistoria{
-            margin:50px 10px 0px 10px;
-        }
-        .box_txt_minhaHistoria h3{
-            font-size:30px;
-            line-height:35px;
+        h3{
+            font-size:var(--tam-subtitulos-mobile);
+            line-height:var(--alt-linha-subtitulos-mobile);
         }
         .box_descricao{
-            margin-top:54px;
-            margin-bottom:100px;
+            margin-top:40px;
             padding:0px 10px;
         }
         .box_descricao p{
-            font-size:22px;
+            font-size:var(--tam-textos-mobile);
+            line-height:var(--alt-linha-textos-mobile);
             text-align:justify;
-            margin-bottom:30px;
-            line-height:25px;
         }
     }
     @media screen and (min-width:761px) and (max-width:990px){
         .box_txt_aboutme{
             margin-top:-30px;
         }
-        .box_txt_aboutme h1{
-            font-size:70px;
-            line-height:75px;
+        h1{
+            font-size:var(--tam-titulos-tablet);
+            line-height:var(--alt-linha-titulos-tablet);
         }
-        .box_txt_minhaHistoria{
-            margin:70px 10px 0px 10px;
-        }
-        .box_txt_minhaHistoria h3{
-            font-size:50px;
-            line-height:55px;
+        h3{
+            font-size:var(--tam-subtitulos-tablet);
+            line-height:var(--alt-linha-subtitulos-tablet);
         }
         .box_descricao{
-            margin-top:54px;
-            margin-bottom:170px;
-            padding:0px 50px;
+            margin-top:40px;
+            margin-bottom:100px;
+            padding:0px 20px;
         }
         .box_descricao p{
-            font-size:28px;
+            font-size:var(--tam-textos-mobile);
+            line-height:var(--alt-linha-textos-mobile);
             text-align:justify;
-            margin-bottom:30px;
-            line-height:32px;
         }
     }
     @media screen and (min-width:991px) and (max-width:1400px){
-        .box_txt_aboutme{
-            margin-top:-30px;
-        }
-        .box_txt_aboutme h1{
-            font-size:70px;
-            line-height:75px;
-        }
-        .box_txt_minhaHistoria{
-            margin:70px 10px 0px 10px;
-        }
-        .box_txt_minhaHistoria h3{
-            font-size:50px;
-            line-height:55px;
-        }
         .box_descricao{
-            margin-top:54px;
-            margin-bottom:170px;
             padding:0px 70px;
-        }
-        .box_descricao p{
-            font-size:28px; 
-            margin-bottom:30px;
-            line-height:32px;
         }
     }
     

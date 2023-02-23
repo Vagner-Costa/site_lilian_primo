@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h1 class="titulos">Portfólio</h1>
+        <h1>PORTFÓLIO</h1>
 
        <CompTopicos :videos="computedVideos" />
     </section>
@@ -93,44 +93,36 @@ export default {
 <style scoped>
     section{
         border-top: solid 1px var(--dourado);
-        padding-bottom:328px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        padding:100px 0px;
     }
-    section h1{
-        margin-top:76px;
-        margin-bottom:133px;
+    h1{
+        color:var(--branco);
+        font-size:var(--tam-titulos-web);
+        font-family:var(--font-titulos);
+        line-height:var(--alt-linha-titulos-web);
+        font-weight:var(--peso-400);
+        margin-bottom:100px;
     }
     @media screen and (min-width:0px) and (max-width:760px){
         section{
-            padding-bottom:150px;
+            padding:75px 0px;
         }
-        section h1{
-            margin-top:30px;
+        h1{
             margin-bottom:50px;
-        }
-        .titulos{
-            font-size:40px;
-            line-height:50px;
+            font-size:var(--tam-titulos-mobile);
+            line-height:var(--alt-linha-titulos-mobile);
         }
     }
     @media screen and (min-width:761px) and (max-width:990px){
-        section{    
-            padding-bottom:120px;
-        }
-        section h1{
-            font-size:70px;
-            line-height:85px;
-            margin-top:76px;
+        h1{
+            font-size:var(--tam-titulos-tablet);
+            line-height:var(--alt-linha-titulos-tablet);
             margin-bottom:76px;
         }
     }
-    @media screen and (min-width:991px) and (max-width:1400px){
-        section{    
-            padding-bottom:250px;
-        }
-        section h1{
-            font-size:90px;
-            line-height:100px;
-            margin-bottom:110px;
-        }
-    }
+    @media screen and (min-width:991px) and (max-width:1400px){}
 </style>

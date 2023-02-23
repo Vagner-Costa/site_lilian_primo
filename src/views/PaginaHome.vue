@@ -5,7 +5,7 @@
     <CompSectionBranca v-if="computedConteudoSlider.length > 0" :conteudo_slider="computedConteudoSlider"/>
   </section>
 </template>
-
+ 
 <script>
 import {mapMutations} from 'vuex'
 import CompBanner from '@/components/compBanner.vue'
@@ -80,11 +80,11 @@ export default {
 </script>
 
 <style scoped>
-  section{
+  /*section{
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
     align-items:center;
-  }
+  }*/
   
 </style>

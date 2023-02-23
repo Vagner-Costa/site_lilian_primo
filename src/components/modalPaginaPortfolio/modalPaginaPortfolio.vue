@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style scoped>
-    section{
+    /*section{
         width:100vw;
         height:100vh;
         display:flex;
@@ -40,7 +40,7 @@ export default {
         position:fixed;
         z-index:2;
         padding:30px 40px 50px 40px;
-    }
+    }*/
     .box_btn_fechar_modal{
         width:100%;
         display:flex;

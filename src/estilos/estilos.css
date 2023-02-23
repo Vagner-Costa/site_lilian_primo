@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root{
     --dourado:#B39B5E;
@@ -6,10 +8,36 @@
     --azul-escurao:#1D1D31;
     --branco:#FFFFFF;
     --verde-whatsapp:#25D366;
-    --font-principal:'Josefin Sans', sans-serif;
-    --tam-font-titulos: 100px;
-    --tam_font_titulo_mobile_tablet: 40px;
-    --tam_font_mobile: 20px;
+
+    --font-titulos: 'Oswald', sans-serif;
+    --font-textos: 'Montserrat', sans-serif;
+
+    --tam-titulos-web: 100px;
+    --tam-titulos-tablet: 80px;
+    --tam-titulos-mobile: 60px;
+
+    --tam-subtitulos-web: 46px;
+    --tam-subtitulos-tablet: 42px;
+    --tam-subtitulos-mobile: 38px;
+
+    --tam-textos-web: 25px;
+    --tam-textos-tablet: 24px;
+    --tam-textos-mobile: 22px;
+
+    --alt-linha-titulos-web: 110px;
+    --alt-linha-titulos-tablet: 90px;
+    --alt-linha-titulos-mobile: 70px;
+
+    --alt-linha-subtitulos-web: 50px;
+    --alt-linha-subtitulos-tablet: 46px;
+    --alt-linhasubtitulos-mobile: 42px;
+
+    --alt-linha-textos-web: 30px;
+    --alt-linha-textos-tablet: 28px;
+    --alt-linha-textos-mobile: 26px;
+
+    --peso-400:400;
+    --peso-700:700;
 }
 
 *{
@@ -29,12 +57,3 @@ body{
     background-color: var(--azul-escurao);
 }
 
-.titulos{
-    font-family:var(--font-principal);
-    text-align:center;
-    color:var(--branco);
-    text-transform:uppercase;
-    font-weight:bold;
-    font-size:var(--tam-font-titulos);
-    line-height:120px;
-}

@@ -24,13 +24,14 @@ export default {
 <style scoped>
     .banner{
         width:1920px;
-        height:930px;
+        height:927px;
         display:flex;
         justify-content:center;
         align-items:center;
     }
     .banner img{
         width:100%;
+        height:100%;
         object-fit: contain;
     }
     @media screen and (min-width:0px) and (max-width:760px){
