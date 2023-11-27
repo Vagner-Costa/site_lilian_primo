@@ -1,3 +1,5 @@
+Projeto solicitado pela cliente de uma pagina profissional apenas utilizando front-end com vue.js
+
 # site_lilian_primo
 
 ## Project setup
