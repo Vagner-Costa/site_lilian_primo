@@ -26,7 +26,7 @@
 
         <div class="container_banner_newsletter">
             <div class="box_banner">
-                <img src="@/assets/newsletter/newsletter.png" alt="imagem">
+                <img src="@/assets/newsletter/noticia.jpg" alt="imagem">
             </div>
 
             <div class="box_newsletter_form">
@@ -90,7 +90,7 @@ export default{
 
 <style scoped>
     .section_dourada{
-        background-color: var(--dourado);
+        background-color: var(--azul-escuro);
         display: flex;
         flex-direction: row;
         justify-content:space-between;
@@ -102,12 +102,9 @@ export default{
         display:flex;
         flex-direction:column;
         align-items:center;
-        width:35%;
-        min-width:390px;
-    }
-    .txt_fique_por_dentro{
-        display:flex;
-        justify-content:center;
+        width:100%;
+        max-width:500px;
+        min-width:400px;
     }
     .txt_fique_por_dentro p{
         font-weight:400;
@@ -119,7 +116,7 @@ export default{
     }
     .box_icones_redes_sociais{
         width:100%;
-        margin-top:26px;
+        margin-top:25px;
         display:flex;
         justify-content:space-between;
         padding:0px 20px;
@@ -128,23 +125,23 @@ export default{
         width:66px;
         height: 66px;
         background-color:var(--branco);
-        border-radius:33px;
+        border-radius:100%;
         padding:15px;
         display:flex;
         justify-content: center;
         align-items:center;
+        margin:0px 3px;
     }
     .container_banner_newsletter{
         display:flex;
         flex-direction:row;
-        align-items:center; 
-        width:50%;
+        align-items:center;
+        width:800px;
         min-width:678px;
-        justify-content:flex-end;
+        justify-content:center;
     }
     .box_banner{
         width:305px;
-        min-width:305px;
         margin-right:78px;
     }
     .box_banner img{
@@ -186,7 +183,7 @@ export default{
         color:var(--branco);
     }
     input[type='text']{
-        width:254px;
+        width:100%;
         height:45px;
         background-color:var(--branco);
         color:var(--azul-escurao);
@@ -235,7 +232,8 @@ export default{
             flex-direction:column;
             align-items:center;
             width:100%;
-            min-width:320px;
+            max-width:320px;
+            min-width:250px;
             margin-bottom:50px;
         }
         .box_icones_redes_sociais{
@@ -297,7 +295,7 @@ export default{
             min-width:280px;
         }
     }
-    @media screen and (min-width:991px) and (max-width:1400px){
+    @media screen and (min-width:991px) and (max-width:1648px){
         .section_dourada{
             display:flex;
             flex-direction:column;
@@ -317,7 +315,7 @@ export default{
             display:flex;
             flex-direction:row;
             width:100%;
-            justify-content:space-between;
+            justify-content:center;
         }
         .box_banner{    
             width:305px;
@@ -328,5 +326,6 @@ export default{
             min-width:300px;
         }
     }
+
 
 </style>

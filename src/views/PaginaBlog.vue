@@ -1,8 +1,8 @@
 <template>
     <section>
-        <h1 class="titulos">BLOG</h1>
+        <h1 class="titulos distancia">BLOG</h1>
 
-        <CompTopicos :imagens="computedImagem"/>
+        <CompTopicos :blog="computedBlog"/>
     </section>
 </template>
 
@@ -13,52 +13,32 @@ export default {
     name: 'PaginaBlog.vue',
     data() {
         return {
-            imagens : [
+            imagem : [
                 {
-                    id: '0001',
-                    imagem: 'Rectangle27.png',
-                    descricao: 'Hub de empresas, uma nova tendência'
+                    id: 'b1',
+                    imagem: '',
+                    descricao: 'Praesent dictum dignissim viverra. Etiam eros ipsum, venenatis sed odio ac.'
                 },
                 {   
-                    id: '0002',
-                    imagem: 'Rectangle10.png',
-                    descricao: 'Inteligência Artificial nos faz perguntar: o que é arte?'
+                    id: 'b2',
+                    imagem: '',
+                    descricao: 'Aliquam ut vehicula diam. Nulla sodales condimentum risus quis sagittis.'
                 },
                 {
-                    id: '0003',
-                    imagem: 'Rectangle11.png',
-                    descricao: 'O cenário e o futuro da mobilidade elétrica na América Latina'
+                    id: 'b3',
+                    imagem: '',
+                    descricao: ' Sed ornare, ligula in fringilla imperdiet, sapien ante vehicula tortor, nec sodales lorem ipsum eu magna. '
                 },
                 {   
-                    id: '004',
-                    imagem: 'Rectangle12.png',
-                    descricao: 'Bem-vindo a Matrix, você vai precisar de óculos virtuais'
+                    id: 'b4',
+                    imagem: '',
+                    descricao: 'Curabitur pretium aliquet eleifend. Curabitur mattis elit erat, eu hendrerit nulla finibus in. '
                 },
                 {   
-                    id: '005',
-                    imagem: 'Rectangle27.png',
-                    descricao: 'Teletransporte holográfico ou uma porta para a Matrix?'
-                },
-                {   
-                    id: '',
+                    id: 'b5',
                     imagem: '',
-                    descricao: ''
-                },  
-                {
-                    id: '',
-                    imagem: '',
-                    descricao: ''
-                },
-                {
-                    id: '',
-                    imagem: '',
-                    descricao: ''
-                },
-                {
-                    id: '',
-                    imagem: '',
-                    descricao: ''
-                },              
+                    descricao: ' Vestibulum commodo nunc molestie, fringilla nulla non, sagittis tellus. '
+                },             
             ]
         }
     },
@@ -66,8 +46,8 @@ export default {
         CompTopicos
     },
     computed: {
-        computedImagem(){
-            return this.imagens
+        computedBlog(){
+            return this.imagem
         }
     }
 }
@@ -75,45 +55,33 @@ export default {
 
 <style scoped>
     section{
-        border-top: solid 1px var(--dourado);
-        padding-bottom:328px;
+        padding-bottom:80px;
     }
-    section h1{
-        margin-top:76px;
-        margin-bottom:133px;
+    .distancia{
+        margin:70px 0px;
     }
     @media screen and (min-width:0px) and (max-width:760px){
         section{
-            padding-bottom:150px;
+            padding-bottom:80px;
         }
-        section h1{
-            margin-top:30px;
-            margin-bottom:50px;
-        }
-        .titulos{
-            font-size:40px;
-            line-height:50px;
+        .distancia{
+            margin:70px 0px;
         }
     }
     @media screen and (min-width:761px) and (max-width:990px){
         section{    
-            padding-bottom:120px;
+            padding-bottom:60px;
         }
-        section h1{
-            font-size:70px;
-            line-height:85px;
-            margin-top:76px;
-            margin-bottom:76px;
+        .distancia{
+            margin:70px 0px;
         }
     }
     @media screen and (min-width:991px) and (max-width:1400px){
         section{    
-            padding-bottom:250px;
+            padding-bottom:80px;
         }
-        section h1{
-            font-size:90px;
-            line-height:100px;
-            margin-bottom:110px;
+        .distancia{
+            margin:70px 0px;
         }
     }
 </style>

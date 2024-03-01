@@ -1,23 +1,25 @@
 <template>
-    <div class="container_topicos">
-        <div class="box_icones">
-            <img :src="`imagensTopicosSectionAzul/${icone}`" alt="icone">
-        </div>
-        <div class="box_txt_topicos">
-            <p>{{txt_topicos}}</p>
-        </div>
+  <div class="container_topicos">
+    <div class="box_icones">
+        <img v-if="conteudo.icone === 'poluicao-agua'" src="../../assets/imagensTopicos/poluicao-agua.png">
+        <img v-if="conteudo.icone === 'desperdicio'" src="../../assets/imagensTopicos/desperdicio.png">
+        <img v-if="conteudo.icone === 'jogar-lixo'" src="../../assets/imagensTopicos/jogar-lixo.png">
+        <img v-if="conteudo.icone === 'plantar'" src="../../assets/imagensTopicos/plantar.png">
+        <img v-if="conteudo.icone === 'poluicao-ar'" src="../../assets/imagensTopicos/poluicao-ar.png">
+        <img v-if="conteudo.icone === 'reciclar'" src="../../assets/imagensTopicos/reciclar.png">
+      </div>
+    <div class="box_txt_topicos">
+        <p>{{conteudo.texto}}</p>
     </div>
+  </div>
 </template>
 
 <script>
     export default{
         name: 'compTopicos',
-        data(){
-          return{}
-        },
+        data(){},
         props:[
-          'icone',
-          'txt_topicos'
+          "conteudo"
         ]
     }
 </script>
@@ -25,22 +27,20 @@
 <style scoped>
   .container_topicos{
     display:flex;
-    max-width:240px;
-    min-width:230px;
+    width:240px;
     flex-direction:column;
     align-items:center;
-    flex-grow:0;
-    flex-basis:1;
     margin:10px;
   }
-  .box_icones{
-    width:158px;
-    height:142px;
+  .box_icones {
+    width:150px;
+    height:150px;
     background-color: var(--branco);
-    border-radius:120px;
+    border-radius:100%;
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:20px;
   } 
   .box_txt_topicos{
     width:100%;
@@ -50,67 +50,37 @@
     color:var(--branco);
     font-family:var(--font-principal);
     font-weight:400;
-    font-size:22px;
+    font-size:20px;
     text-align:center;
   }
   @media screen and (min-width:0px) and (max-width:760px){
     .container_topicos{
-      min-width:145px;
-      max-width:160px;  
-      margin:12px;
-      
+      width:160px; 
+      margin:10px;
     }
     .box_icones{
       width:120px;
-      height:105px;
-      border-radius:70px;
-    }
-    .box_txt_topicos p{
-      font-size:var(--tam_font_mobile);
+      height:120px;
     }
   }
   @media screen and (min-width: 761px) and (max-width:990px){
     .container_topicos{
-      min-width:210px;
-      max-width:220px;
-      margin:12px;
+      width:200px;
+      margin:10px;
     }
     .box_icones{
       width:140px;
-      height:125px;
-      border-radius:75px;
+      height:140px;
     } 
-    .box_txt_topicos{
-      width:100%;
-      margin-top:14px;
-    }
-    .box_txt_topicos p{
-      color:var(--branco);
-      font-family:var(--font-principal);
-      font-weight:400;
-      font-size:var(--tam_font_mobile);
-    }
   }
   @media screen and (min-width: 991px) and (max-width:1400px){
     .container_topicos{
-      min-width:220px;
-      max-width:230px;
-      margin:15px;
+      width:220px;
+      margin:10px;
     }
     .box_icones{
-      width:150px;
-      height:134px;
-      border-radius:75px;
+      width:160px;
+      height:160px;
     } 
-    .box_txt_topicos{
-      width:100%;
-      margin-top:14px;
-    }
-    .box_txt_topicos p{
-      color:var(--branco);
-      font-family:var(--font-principal);
-      font-weight:400;
-      font-size:var(--tam_font_mobile);
-    }
   }
 </style>

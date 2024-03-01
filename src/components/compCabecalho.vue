@@ -1,9 +1,8 @@
 <template>
     <header>
         <div class="box_logo">
-            <img src="@/assets/logotipo/LOGO-VERTICAL1.png" alt="imagem Logotipo">
+            <img src="@/assets/logotipo/arvore1.png" alt="Logotipo">
         </div>
-
 
         <button class="btn_abrir_nav" @click="methodsToggleNav()">
             <img src="@/assets/icones/cardapio.png" alt="">
@@ -14,7 +13,7 @@
             <router-link to="/" class="btn_links btn_home" 
                 :class="{btn_ativo : computedBtnAtivo === '/'}" 
                 @click="methodsBtnAtivo('/')">
-                    HOME
+                    HOME    
             </router-link>
             <router-link to="/about-me" class="btn_links" 
                 :class="{btn_ativo : computedBtnAtivo === '/about-me'}"
@@ -82,18 +81,17 @@
         display:flex;
         flex-direction:row;
         align-items:center;
-        padding:64px 170px;
+        padding:0px 170px;
         justify-content:space-between;
-    }
-    .box_logo{
-        width:339px;
-        height:112px;
-        margin-right:50px;
+        background-image: url('../assets/background/fundo-folhas.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
     }
     .box_logo img{
-        width:100%;
-        height:100%;
-        object-fit: contain;
+        width:200px;
+        height:200px;
+        object-fit: cover;
     }
     .btn_abrir_nav{
         display:none;
@@ -135,11 +133,11 @@
             flex-direction:column;
             flex-wrap:nowrap;
             align-items:center;
-            padding:10px 0px;
+            padding:0px 0px;
         }
-        .box_logo{
-            width:270px;
-            height:90px;
+        .box_logo img{
+            width:150px;
+            height:150px;
             margin-right:0px;
         }
         .btn_abrir_nav{
@@ -148,7 +146,8 @@
             display:block;
             background-color:var(--azul-escurao);
             border:0px;
-            margin-top:15px;
+            margin-bottom:10px;
+            cursor:pointer;
         }
         .btn_abrir_nav img{
             width:100%;
@@ -159,7 +158,6 @@
             width:100%;
             flex-direction:column;
             opacity:1;
-            margin-top:10px;
             transition:all 0.5s;
             height:250px;    
         }
@@ -191,9 +189,9 @@
             padding:10px 20px;
             justify-content:center;
         }
-        .box_logo{
-            width:300px;
-            margin-bottom:20px;
+        .box_logo img{
+            width:180px;
+            height:180px;
         }
         nav{
             width:750px;
@@ -214,9 +212,9 @@
             padding:10px 10px;
             justify-content:space-between;
         }
-        .box_logo{
-            width:300px;
-            margin-bottom:20px;
+        .box_logo img{
+            width:200px;
+            height:200px
         }
         nav{
             width:750px;

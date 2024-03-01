@@ -1,16 +1,12 @@
 <template>
     <section class="section_azul">
         <div class="box_titulo_topicos">
-        <p>Uma trajetória que gerou muitos resultados.</p>
+          <p class="titulos">Cuidando do meio ambiente com responsabilidade.</p>
         </div>
         <div class="box_topicos">
-        <BoxTopicos :icone="computedIcones[0]" :txt_topicos="textos[0]"/>
-        <BoxTopicos :icone="computedIcones[1]" :txt_topicos="textos[1]"/>
-        <BoxTopicos :icone="computedIcones[2]" :txt_topicos="textos[2]"/>
-        <BoxTopicos :icone="computedIcones[3]" :txt_topicos="textos[3]"/>
-        <BoxTopicos :icone="computedIcones[4]" :txt_topicos="textos[4]"/>
-        <BoxTopicos :icone="computedIcones[5]" :txt_topicos="textos[5]"/>
-
+          <template v-for="dado,index in computedDados" :key="index">
+            <BoxTopicos :conteudo="dado"></BoxTopicos>
+          </template>
         </div>
     </section>
 </template>
@@ -22,31 +18,26 @@ export default{
     name: 'compSectionAzul.vue',
     data() {
         return{
-            textos : [
-                'Ministrou mais de 60 palestras sobre tecnologia e empreendedorismo',
-                'Gravou mais de 10 podcasts',
-                'Convidada em programas de TV',
-                'Realizou mais de 100 mentorias',
-                'Escreveu mais de 30 colunas',
-                'Rádio Nova Brasil Mais de 80 colunas Tecnologia sem Complicação'
+            dados : [
+              {texto:"Não poluir rios e mares",icone:"poluicao-agua"},
+              {texto:"Não desperdiçar água",icone:"desperdicio"},
+              {texto:"Jogue sempre o lixo no lixo",icone:"jogar-lixo"},
+              {texto:"Cuidado e propteção ao meio ambiente",icone:"plantar"},
+              {texto:"Evite poluir o ar com gazes tóxicos",icone:"poluicao-ar"},
+              {texto:"Sempre recicle os materias reciclaveis",icone:"reciclar"}
             ],
-            icones : [],
-            foto: ''
         }
-    },
-    beforeMount(){
-        this.icones = ['perfil.png','microfone.png','tv.png','perfil-tela.png','documento.png','tela-preenchida.png']
     },
     computed:{
-        computedTextos(){
-        return this.textos
+        computedDados(){
+        return this.dados
         },
-        computedIcones(){
-        return this.icones
-        },
-        computedFoto(){
-        return this.foto
-        }
+        // computedIcones(){
+        // return this.icones
+        // },
+        // computedFoto(){
+        // return this.foto
+        // }
     },
     components:{
         BoxTopicos
@@ -63,19 +54,12 @@ export default{
         padding: 52px 166px;
     } 
     .box_titulo_topicos{
-        max-width:546px;
+        width:100%;
+        max-width:650px;
         display:flex;
         flex-direction:row;
         flex-wrap:wrap;
         justify-content:center;
-    }
-    .box_titulo_topicos p{
-        font-weight:700;
-        font-family:var(--font-principal);
-        font-size:46px;
-        color:var(--branco);
-        text-align:center;
-        line-height:46px;
     }
     .box_topicos{
         margin-top:101px;
@@ -91,12 +75,7 @@ export default{
     }  
     .box_titulo_topicos{
       width:100%;
-      height:100%;
       padding:0px 10px;
-    }
-    .box_titulo_topicos p{
-      font-size:var(--tam_font_titulo_mobile_tablet);
-      line-height:40px;
     }
     .box_topicos{
       margin-top:50px;
@@ -106,13 +85,6 @@ export default{
     .section_azul{
       padding: 52px 20px;
     } 
-    .box_titulo_topicos{
-      width:500px;
-    }
-    .box_titulo_topicos p{
-      font-size:var(--tam_font_titulo_mobile_tablet);
-      line-height:46px;
-    }
     .box_topicos{
       margin-top:60px;
     }
@@ -121,13 +93,6 @@ export default{
     .section_azul{
       padding: 52px 30px;
     } 
-    .box_titulo_topicos{
-      width:500px;
-    }
-    .box_titulo_topicos p{
-      font-size:var(--tam_font_titulo_mobile_tablet);
-      line-height:46px;
-    }
     .box_topicos{
       margin-top:80px;
     }

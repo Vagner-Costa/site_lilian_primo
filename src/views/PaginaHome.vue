@@ -1,6 +1,6 @@
 <template>
   <section>
-    <CompBanner :banner="computedBannerHome"/>
+    <CompBanner banner="home"/>
     <CompSectionAzul/>
     <CompSectionBranca v-if="computedConteudoSlider.length > 0" :conteudo_slider="computedConteudoSlider"/>
   </section>
@@ -15,7 +15,6 @@ export default {
   name: 'PaginaHome',
   data(){
     return{
-      bannerHome: 'banner-teste.jpg',
       conteudo_slider: [
         {
           id: '001',
@@ -56,9 +55,6 @@ export default {
     }
   },
   computed: {
-    computedBannerHome(){
-      return this.bannerHome
-    },
     computedConteudoSlider(){
       return this.conteudo_slider
     }

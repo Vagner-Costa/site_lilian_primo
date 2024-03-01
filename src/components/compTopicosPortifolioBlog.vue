@@ -1,9 +1,16 @@
 <template>
-    <div class="container_video" v-if="videos">
-        <div v-for="video in videos" class="box_videos_descricao" :key="video.id">
+    <div class="container_video" v-if="portifolio">
+        <div v-for="video in portifolio" class="box_videos_descricao" :key="video.id">
             <div class="box_video">
-                <img v-if="video.imagem" :src="`imagensVideosTopicosPortfolio/${video.imagem}`" :alt="video.id">
-                <button class="btn_play" v-if="video.imagem" @click="actionsModalPaginaPortfolio(video)">
+                <img v-if="video.id === 'p1'" src="../assets/topicosPortifolio/img1.jpg" :alt="video.id">
+                <img v-if="video.id === 'p2'" src="../assets/topicosPortifolio/img2.jpg" :alt="video.id">
+                <img v-if="video.id === 'p3'" src="../assets/topicosPortifolio/img3.jpg" :alt="video.id">
+                <img v-if="video.id === 'p4'" src="../assets/topicosPortifolio/img4.jpg" :alt="video.id">
+                <img v-if="video.id === 'p5'" src="../assets/topicosPortifolio/img5.jpg" :alt="video.id">
+                <img v-if="video.id === 'p6'" src="../assets/topicosPortifolio/img6.jpg" :alt="video.id">
+                <img v-if="video.id === 'p7'" src="../assets/topicosPortifolio/img7.jpg" :alt="video.id">
+                
+                <button class="btn_play" v-if="video.imagem">
                     <img src="../assets/icones/image1.png" alt="play">
                 </button>
             </div>
@@ -14,14 +21,30 @@
         </div>
     </div>
 
-    <div class="container_video" v-if="imagens">
-        <div v-for="imagem in imagens" class="box_videos_descricao" :key="imagem.id">
+    <div class="container_video" v-if="blog">
+        <div v-for="imagem in blog" class="box_videos_descricao" :key="imagem.id">
             <div class="box_video">
-                <img v-if="imagem.imagem" :src="`imagensTopicosBlog/${imagem.imagem}`" :alt="imagem.id">
+                <img v-if="imagem.id === 'b1'" src="../assets/topicosBlog/blog1.jpg" :alt="imagem.id">
+                <img v-if="imagem.id === 'b2'" src="../assets/topicosBlog/blog2.jpg" :alt="imagem.id">
+                <img v-if="imagem.id === 'b3'" src="../assets/topicosBlog/blog3.jpg" :alt="imagem.id">
+                <img v-if="imagem.id === 'b4'" src="../assets/topicosBlog/blog4.jpg" :alt="imagem.id">
+                <img v-if="imagem.id === 'b5'" src="../assets/topicosBlog/blog5.jpg" :alt="imagem.id">
             </div>
             <div class="box_descricao">
+                <div class="container_btns">
+                    <button>
+                        <img class="midias" src="../assets/reacoes/comente.png" alt="">
+                    </button>
+
+                    <button>
+                        <img class="midias" src="../assets/reacoes/compartilhar.png" alt="">
+                    </button>
+
+                    <button>
+                        <img class="midias" src="../assets/reacoes/gostar.png" alt="">
+                    </button>
+                </div>
                 <p v-if="imagem.descricao">{{imagem.descricao}}</p>
-                <p v-else>Título Aqui</p>
             </div>
         </div>
     </div>
@@ -36,7 +59,7 @@ export default {
         return {}
     },
     props: [
-        'videos','imagens'
+        'portifolio','blog'
     ],
 
     methods: {
@@ -60,7 +83,7 @@ export default {
         flex-direction:column;
         background-color:var(--branco);
         flex-shrink: 1;
-        margin:0px 23px 119px 23px;
+        margin:20px;
         border-radius:0px 0px 10px 10px;
     }
     .box_video{
@@ -87,8 +110,30 @@ export default {
         background-color:var(--dourado);
         display:flex;
         justify-content:center;
+        flex-direction:column;
         align-items:center;
         padding:0px 10px;
+    }
+    .container_btns{
+        width:100%;
+        display:flex;
+        flex-direction:row;
+        justify-content:start;
+        background-color:var(--azul-escuro);
+    }
+    .container_btns button{
+        width:35px;
+        height:35px;
+        padding:5px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color:var(--azul-escuro);
+        margin:0px 10px 20px 10px;
+        cursor:pointer;
+    }
+    .container_btns button:hover{
+        padding:2px;
     }
     .box_descricao p{
         color:var(--branco);

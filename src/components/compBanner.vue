@@ -1,6 +1,8 @@
 <template>
     <div class="banner">
-        <img :src="`imagensBanner/${banner}`" alt="">
+        <img v-if="banner === 'home'" src="../assets/banner/banner1.jpg" alt="img">
+        <img v-if="banner === 'aboutMe'" src="../assets/banner/trabalhador.jpg" alt="img">
+        <img v-if="banner === 'contato'" src="../assets/banner/trabalhador.jpg" alt="img">
     </div>
 </template>
 
@@ -18,32 +20,32 @@ export default {
 
 <style scoped>
     .banner{
-        width:1920px;
-        height:930px;
+        width:100%;
+        max-height:900px;
         display:flex;
         justify-content:center;
         align-items:center;
     }
     .banner img{
         width:100%;
-        object-fit: contain;
+        height:100%;
+        object-fit: cover;
     }
     @media screen and (min-width:0px) and (max-width:760px){
         .banner{
             width:100%;
-            height:100%;
+            height:300px;
             padding:0px;
         }
         .banner img{
             width:100%;
             height:100%;
-            object-fit:contain;
+            object-fit:cover;
         }
     }
     @media screen and (min-width: 761px) and (max-width:990px){
         .banner{
             width:100%;
-            height:100%;
         }
         .banner img{
             width:100%;
@@ -53,7 +55,6 @@ export default {
     @media screen and (min-width: 991px) and (max-width:1400px){
         .banner{
             width:100%;
-            height:100%;
         }
         .banner img{
             width:100%;

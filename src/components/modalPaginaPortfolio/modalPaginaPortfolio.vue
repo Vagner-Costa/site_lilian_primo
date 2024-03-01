@@ -38,7 +38,8 @@ export default {
         align-items:center;
         background-color:rgba(0,0,0,0.9);
         position:fixed;
-        z-index:2;
+        top:0;
+        z-index:10;
         padding:30px 40px 50px 40px;
     }
     .box_btn_fechar_modal{

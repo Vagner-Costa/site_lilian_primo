@@ -1,8 +1,7 @@
 <template>
     <section>
-        <h1 class="titulos">Portfólio</h1>
-
-       <CompTopicos :videos="computedVideos" />
+        <h1 class="titulos distancia">PORTIFÓLIO</h1>
+       <CompTopicos :portifolio="computedVideos" />
     </section>
 </template>
 
@@ -15,64 +14,53 @@ export default {
         return{
             videos : [
                 {
-                    id: '0001',
-                    imagem: 'Rectangle27.png',
+                    id: 'p1',
+                    imagem: 'img1',
                     video: '',
-                    descricao: 'EMPRESA DE PATINETES ELÉTRICOS VALE MESMO R$15 MILHÕES? | Primo Startups #16'
+                    descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
                 },
                 {   
-                    id: '0002',
-                    imagem: 'Rectangle10.png',
+                    id: 'p2',
+                    imagem: 'img2',
                     video: '',
-                    descricao: 'ESTE PITCH CHOCOU JOÃO KEPLER E SUA CONVIDADA'
+                    descricao: 'Fusce ornare gravida lectus, sit amet cursus nisl iaculis sed.'
                 },
                 {
-                    id: '0003',
-                    imagem: 'Rectangle11.png',
+                    id: 'p3',
+                    imagem: 'img3',
                     video: '',
-                    descricao: 'Mobye | Os Desafios da Mulher Empreendedora Lilian Primo Albuquerque no Café com Segurança'
-                },
-                {   
-                    id: '',
-                    imagem: '',
-                    video: '',
-                    descricao: ''
-                },
-                {   
-                    id: '',
-                    imagem: '',
-                    video: '',
-                    descricao: ''
-                },
-                {   
-                    id: '',
-                    imagem: '',
-                    video: '',
-                    descricao: ''
-                },  
-                {
-                    id: '',
-                    imagem: '',
-                    video: '',
-                    descricao: ''
+                    descricao: 'Curabitur non justo auctor, scelerisque ipsum sed, auctor ex.'
                 },
                 {
-                    id: '',
-                    imagem: '',
+                    id: 'p4',
+                    imagem: 'img4',
                     video: '',
-                    descricao: ''
+                    descricao: 'Maecenas sollicitudin porta nunc, eget scelerisque nisi euismod vitae.'
                 },
                 {
-                    id: '',
-                    imagem: '',
+                    id: 'p5',
+                    imagem: 'img5',
                     video: '',
-                    descricao: ''
-                },              
+                    descricao: 'Suspendisse tempor nisl in sapien pellentesque scelerisque. '
+                },
+                {
+                    id: 'p6',
+                    imagem: 'img6',
+                    video: '',
+                    descricao: 'Aliquam arcu elit, euismod eget arcu id, convallis ultricies nisl. Integer '
+                },
+                {
+                    id: 'p7',
+                    imagem: 'img7',
+                    video: '',
+                    descricao: 'Maecenas et turpis quis erat pellentesque accumsan at malesuada est.'
+                },
+              
             ]
         }
     },
     components: {
-        CompTopicos 
+        CompTopicos,
     },
     computed:{
         computedVideos(){
@@ -84,45 +72,33 @@ export default {
 
 <style scoped>
     section{
-        border-top: solid 1px var(--dourado);
-        padding-bottom:328px;
+        padding-bottom:80px;
     }
-    section h1{
-        margin-top:76px;
-        margin-bottom:133px;
+    .distancia{
+        margin:70px 0px;
     }
     @media screen and (min-width:0px) and (max-width:760px){
         section{
-            padding-bottom:150px;
+            padding-bottom:80px;
         }
-        section h1{
-            margin-top:30px;
-            margin-bottom:50px;
-        }
-        .titulos{
-            font-size:40px;
-            line-height:50px;
+        .distancia{
+            margin:70px 0px;
         }
     }
     @media screen and (min-width:761px) and (max-width:990px){
         section{    
-            padding-bottom:120px;
+            padding-bottom:80px;
         }
-        section h1{
-            font-size:70px;
-            line-height:85px;
-            margin-top:76px;
-            margin-bottom:76px;
+        .distancia{
+            margin:70px 0px;
         }
     }
     @media screen and (min-width:991px) and (max-width:1400px){
         section{    
-            padding-bottom:250px;
+            padding-bottom:80px;
         }
-        section h1{
-            font-size:90px;
-            line-height:100px;
-            margin-bottom:110px;
+        .distancia{
+            margin:70px 0px;
         }
     }
 </style>
